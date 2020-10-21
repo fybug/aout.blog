@@ -72,20 +72,16 @@ confload.runOf('ModeLoad', /** @param {ModeLoad} modeload */(modeload) => {
 
 在项目文件夹中运行 `npm -y init` 初始化
 
-## 安装 **webpack**
-```
-npm install webpack webpack-cli webpack-dev-server -g
-```
-
 ## 安装项目依赖
 ```
 npm install --save-dev
 ```
+> 包含了 **webpack** 和 **webpack-dev-server**
 
 ## 额外
 ### 安装 **postcss**
 ```
-npm install postcss-cli -g
+npm install postcss-loader -D
 ```
 ### 使用的 **postcss** 模块
 ```
