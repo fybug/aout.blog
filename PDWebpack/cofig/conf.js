@@ -10,7 +10,7 @@ global.Conf = {
      *
      * @type ('ModeLoad'|'PageLoad'|'AnonymousLoad')[]
      */
-    configload: ['ModeLoad', 'PageLoad'],
+    configload: ['ModeLoad'],
 
     // 全局输出配置
     Out: {
@@ -31,7 +31,7 @@ global.Conf = {
     // css 输出配置
     cssOut: {
         urlOf: './',
-        outName: '[hash:12][name][id].css'
+        outName: '[name].css'
     },
     // 字体文件输出配置
     fontOut: {
@@ -41,7 +41,7 @@ global.Conf = {
     // 图片输出配置
     imgOut: {
         urlOf: './',
-        outName: 'static/[id][name][hash:9].[ext]'
+        outName: 'static/[name].[ext]'
     },
 
     /** 开发者模式下的专属配置 */
