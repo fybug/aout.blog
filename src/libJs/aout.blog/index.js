@@ -166,7 +166,7 @@ Aout_blog.Tags = class Tags {
         };
     }
 
-    /** 申请标签列表数据处理回调
+    /** 注册标签列表数据处理回调
      *
      * 作用于无标签名称打印所有标签数据的时候
      *
@@ -310,6 +310,7 @@ Aout_blog.Conts = class Conts {
         this.publicpath = publicpath;
         this.nowpage = Number(nowpage);
 
+        // 初始化数据映射
         this.__runof = {
             pagenum: {
                 publicpath: this.publicpath,
@@ -334,7 +335,7 @@ Aout_blog.Conts = class Conts {
         };
     }
 
-    /** 申请获取数据总量时的处理
+    /** 注册获取数据总量时的处理
      *
      * @param {function(number,number):boolean|undefined} fun 处理页面数量相关时的函数，传入最大的页数，当前页数
      * @param {function(any)} error 发生错误时的处理回调
@@ -352,11 +353,11 @@ Aout_blog.Conts = class Conts {
         return this;
     }
 
-    /** 申请分页数据处理方法
+    /** 注册分页数据处理方法
      *
      * @param {number} pagnum 前后每一边留出多少分页
-     * @param {function(number,boolean,number,number):boolean|undefined} fun 生成页码传入：当前页码，当前生成的页码是否与页面页码相同，最大数量，分页数量
-     * @param {function(number,boolean,number,number):boolean|undefined} calledge 生成页码边缘的内容传入：当前页码，true 是后面的边缘 false 是前面的边缘，最大数量，分页数量
+     * @param {function(number,boolean,number,number):boolean|undefined} fun 页码生成方法：当前生成的页码，当前生成的页码是否与页面页码相同，最大数量，分页数量
+     * @param {function(number,boolean,number,number):boolean|undefined} calledge 生成页码边缘的内容传入：当前页面页码，[true 是后面的边缘 false 是前面的边缘]，最大数量，分页数量
      *
      * @return this
      */
@@ -368,10 +369,10 @@ Aout_blog.Conts = class Conts {
         return this;
     }
 
-    /** 申请内容数据处理方法
+    /** 注册内容列表数据处理方法
      *
-     * @param {function({},number,{}[]):boolean|undefined} fun 内容数据填充方法，传入：当前内容的 json 数据对象，当前内容的位置，内容的 json 数据对象数组
-     * @param {function({}[],boolean):boolean|undefined} calledge 内容边缘数据处理，传入：内容的 json 数据对象数组，true 为在后方边缘 false 为在前方边缘
+     * @param {function({},number,{}[]):boolean|undefined} fun 内容数据填充方法，传入：当前内容的 json 数据对象，当前内容的位置，当前页面所有内容的 json 数据对象数组
+     * @param {function({}[],boolean):boolean|undefined} calledge 内容边缘数据处理，传入：当前内容的 json 数据对象数组，[true 为在后方边缘 false 为在前方边缘]
      * @param {function(any)} error 错误处理回调
      * @param {string} publicpath 重新指定的 url 地址
      *
@@ -385,10 +386,10 @@ Aout_blog.Conts = class Conts {
         return this;
     }
 
-    /** 申请标签数据处理方法
+    /** 注册标签数据处理方法
      *
-     * @param {function(string,number,string[]):boolean|undefined} fun 标签数据填充方法，传入：当前标签的位置，标签数据集
-     * @param {function(string[],boolean):boolean|undefined} calledge 边缘数据处理，传入：标签数据集，true 为在后方边缘 false 为在前方边缘
+     * @param {function(string,number,string[]):boolean|undefined} fun 标签数据填充方法，传入：当前标签，当前标签的位置，所有标签的数据集
+     * @param {function(string[],boolean):boolean|undefined} calledge 边缘数据处理，传入：全部标签的数据集，[true 为在后方边缘 false 为在前方边缘]
      * @param {function(any)} error 错误处理回调
      * @param {string} publicpath 重新指定的 url 地址
      * @param {string} filname 重新指定的文件名称
@@ -404,7 +405,9 @@ Aout_blog.Conts = class Conts {
         return this;
     }
 
-    /** 启动内容处理
+    /** 启动列表内容处理
+     *
+     * 此前注册的处理接口如果返回 true 则会在当前流程中断
      *
      * @param {function()} fun 结束后的回调
      */
@@ -418,6 +421,7 @@ Aout_blog.Conts = class Conts {
                 // 当前页码
                 let index = this.nowpage;
 
+                // 总页码处理方法
                 if (this.__runof.pagenum.fun(maxnum, index)) return;
 
                 // 生成分页
@@ -427,6 +431,52 @@ Aout_blog.Conts = class Conts {
                 // 获取标签数据
                 this.__plushtags();
             }).then(() => fun());
+    }
+
+    /** 启动内容处理
+     *
+     * 此前注册的处理接口如果返回 true 则会在当前流程中断
+     *
+     * @param {string|number} id 内容的 id 的 get 参数名或者直接输入 id
+     * @param {{
+     *     error: function(any),
+     *     calledge: function({},boolean):boolean|undefined,
+     *     fun: function({},number):boolean|undefined
+     * }} runof 数据处理接口对象，内部函数类型与 {@link conts} 的参数类似，但是只有一个数据对象了，并且数据的位置变成了数据的 id
+     * @param {function()} fun 结束后的回调
+     */
+    runofCont(id, runof = {}, fun = Aout_blog.emptyfun) { // todo 获取
+        if (typeof id === "string") id = getQueryString(id, -1)
+        runof = Object.assign({
+            error: Aout_blog.emptyfun(),
+            calledge: Aout_blog.emptyfun(),
+            fun: Aout_blog.emptyfun()
+        }, runof)
+
+        // 当前页码
+        let index = this.nowpage;
+
+        fetch(this.__runof.conts.publicpath + index + '.js')
+            .then(re => re.json()).catch(runof.error)
+            .then(json => {
+                // 提取当前数据属性
+                for (let i = 0, len = json.length; i < len; ++i)
+                    if (json[i]["index"] === id) return json[i]
+                throw new Error("无法获取属性，页码 " + index + "，id " + id + " !");
+            }).then(json => {
+            // 获取数据
+            fetch(this.__runof.conts.publicpath + id + '_data.html')
+                .then(da => json.content = da).catch(runof.error)
+                .then(() => {
+                    // 前边缘处理
+                    if (runof.calledge(json, false)) return true;
+                    // 数据处理
+                    if (runof.fun(json, id)) return true;
+                    // 后边缘处理
+                    return runof.calledge(json, true);
+                })
+                .then(() => fun());
+        });
     }
 
     /** 填充标签区的数据 */
