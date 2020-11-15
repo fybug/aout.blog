@@ -1,4 +1,5 @@
-require('./lib/vhannels.tool');
+require('./lib/vhannels/main');
+require('./lib/vhannels/tool/main');
 
 /** Aout.blog 静态数据快速处理工具
  *
@@ -33,7 +34,7 @@ let Aout_blog = class Aout_blog {
      */
     constructor(page, pageque = "p", publicpath = './static/blogs/') {
         let path = publicpath + page + '/';
-        let nowpage = getQueryString(pageque, '0');
+        let nowpage = vhannels.tool.getQueryString(pageque, '0');
 
         this.conts = new Aout_blog.Conts(nowpage, path);
         this.tags = new Aout_blog.Tags(nowpage, path);
@@ -448,7 +449,7 @@ Aout_blog.Conts = class Conts {
      * @param {function()} fun 结束后的回调
      */
     runofCont(id, runof = {}, fun = Aout_blog.emptyfun) {
-        if (typeof id === "string") id = getQueryString(id, -1)
+        if (typeof id === "string") id = vhannels.tool.getQueryString(id, -1)
         runof = Object.assign({
             error: Aout_blog.emptyfun(),
             calledge: Aout_blog.emptyfun(),

@@ -2,7 +2,7 @@ module.exports = {
     /** 不包含依赖的打包去除的依赖代码行
      * @type Map<string,number>
      */
-    libRemoveFilesLine: new Map([["src/libJs/aout.blog/index.js", 1]]),
+    libRemoveFilesLine: new Map([["src/libJs/aout.blog/index.js", 2]]),
     /** 不打包的文件
      *  @type Set<string>
      */
