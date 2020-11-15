@@ -171,7 +171,7 @@ Aout_blog.Tags = class Tags {
      * 作用于无标签名称打印所有标签数据的时候
      *
      * @param {function(string,number,string[]):boolean|undefined} fun 标签数据处理方法，传入：当前标签，标签的位置，标签数据集
-     * @param {function(string[],boolean):boolean|undefined} calledge 数据边缘处理方法，传入：当前标签数据集，true 在后边缘 false 在前边缘
+     * @param {function(string[],boolean):boolean|undefined} calledge 数据边缘处理方法，传入：当前标签数据集，[true 在后边缘 false 在前边缘]
      * @param {function(any)} error 错误处理回调
      * @param {string} publicpath 重新定位 url 地址
      * @param {string} filname 重新指定文件名称
@@ -188,7 +188,7 @@ Aout_blog.Tags = class Tags {
         return this;
     }
 
-    /** 申请获取数据总量时的处理
+    /** 注册获取数据总量时的处理
      *
      * @param {function(number,number):boolean|undefined} fun 页数数据处理回调，传入：最大页数，当前页码
      * @param {function(any)} error 错误处理回调
@@ -204,11 +204,11 @@ Aout_blog.Tags = class Tags {
         return this;
     }
 
-    /** 申请分页处理
+    /** 注册分页处理
      *
      * @param {number} pagnum 每边的页码数量
      * @param {function(number,boolean,number,number):boolean|undefined} fun 分页处理回调，传入：当前页码，当前生成的页码是否与页面页码相同，最大数量，分页数量
-     * @param {function(number,boolean,number,number):boolean|undefined} calledge 分页边缘处理回调，传入：当前页码，true 是后面的边缘 false 是前面的边缘，最大数量，分页数量
+     * @param {function(number,boolean,number,number):boolean|undefined} calledge 分页边缘处理回调，传入：当前页码，[true 是后面的边缘 false 是前面的边缘]，最大数量，分页数量
      *
      * @return this
      */
@@ -220,12 +220,12 @@ Aout_blog.Tags = class Tags {
         return this;
     }
 
-    /** 申请标签页面内容数据
+    /** 注册标签页面内容数据
      *
      * 带有对应标签的文章数据
      *
-     * @param {function({},number,{}[]):boolean|undefined} fun 数据处理回调，传入：当前内容数据，当前内容的位置，内容数据集
-     * @param {function({}[],boolean):boolean|undefined} calledge 数据边缘处理，传入：内容数据集，true 为在后方边缘 false 为在前方边缘
+     * @param {function({},number,{}[]):boolean|undefined} fun 数据处理回调，传入：当前内容的数据对象，当前内容的位置，当前页面所有内容的数据对象组
+     * @param {function({}[],boolean):boolean|undefined} calledge 数据边缘处理，传入：当前页面所有内容的数据对象组，[true 为在后方边缘 false 为在前方边缘]
      * @param {function(any)} error 错误处理回调
      * @param {string} publicpath 重新定位 url 地址
      *
@@ -283,6 +283,8 @@ Aout_blog.Tags = class Tags {
  * 处理顺序 pagenum -> paging -> conts -> tags
  *
  * 在 pagenum 获取失败的时候后面的都将不会运行
+ *
+ * 获取列表项内容使用 {@link Aout_blog.Conts.run}，获取单独的 id 内容使用 {@link Aout_blog.Conts.runofCont}
  *
  * @author fybug
  * @version 0.0.1
@@ -445,7 +447,7 @@ Aout_blog.Conts = class Conts {
      * }} runof 数据处理接口对象，内部函数类型与 {@link conts} 的参数类似，但是只有一个数据对象了，并且数据的位置变成了数据的 id
      * @param {function()} fun 结束后的回调
      */
-    runofCont(id, runof = {}, fun = Aout_blog.emptyfun) { // todo 获取
+    runofCont(id, runof = {}, fun = Aout_blog.emptyfun) {
         if (typeof id === "string") id = getQueryString(id, -1)
         runof = Object.assign({
             error: Aout_blog.emptyfun(),
