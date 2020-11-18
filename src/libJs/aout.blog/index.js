@@ -1,5 +1,5 @@
-require('./lib/vhannels/main');
-require('./lib/vhannels/tool/main');
+require('./lib/vhannels/vhannels_publiclib');
+require('./lib/vhannels/vhannels.tool');
 
 /** Aout.blog 静态数据快速处理工具
  *
