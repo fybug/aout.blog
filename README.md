@@ -16,7 +16,10 @@
 
 安装方式参考 **wiki** 文档
 
-## 安装项目依赖
+## 依赖的其他项目
+- [vhannels](https://gitee.com/fybug/vhannels)
+
+## 安装 Node.js 依赖
 需要在 **PDWebpack** 的基础上追加一些依赖库。
 ```
 npm install fs globby marked path --save-dev
