@@ -88,6 +88,8 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
+vhannels.setName(["floatContlos"]);
+
 __webpack_require__(1);
 
 __webpack_require__(2);
@@ -134,7 +136,7 @@ function _classStaticPrivateFieldSpecGet(receiver, classConstructor, descriptor)
  *
  * 用于显示多种状态的消息，每种状态都可以设定对应显示方式
  *
- * @extends vhannels.View
+ * @extends vhannels.ViewGroup
  * @class vhannels.floatContlos.Message
  * @see vhannels.floatContlos.FloatMessage
  * @author fybug
@@ -322,7 +324,7 @@ var Message = /*#__PURE__*/function (_vhannels$ViewGroup) {
 
   return Message;
 }(vhannels.ViewGroup);
-/** @type vhannels.floatContlos.Message */
+/** @type Message */
 
 
 var _nullfun = {
@@ -331,7 +333,7 @@ var _nullfun = {
     return v.querySelector("p").getDom().innerText = message;
   }
 };
-vhannels.setName(["floatContlos"]).Message = Message;
+vhannels.floatContlos.Message = Message;
 
 /***/ }),
 /* 3 */
@@ -380,7 +382,7 @@ var FloatMessage = /*#__PURE__*/function (_vhannels$ViewGroup) {
   function FloatMessage() {
     var _this;
 
-    var dom = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
+    var dom = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : vhannels.View.Body;
 
     _classCallCheck(this, FloatMessage);
 
@@ -397,7 +399,7 @@ var FloatMessage = /*#__PURE__*/function (_vhannels$ViewGroup) {
   /** 展示消息对象
    *
    * @param {vhannels.floatContlos.Message} message 要展示的消息
-   * @param {number} time 消息展示的时长，不传入则为无限
+   * @param {number|undefined} time 消息展示的时长，不传入则为无限
    *
    * @return vhannels.floatContlos.Message 消息对象
    */
@@ -405,7 +407,8 @@ var FloatMessage = /*#__PURE__*/function (_vhannels$ViewGroup) {
 
   _createClass(FloatMessage, [{
     key: "showMessage",
-    value: function showMessage(message, time) {
+    value: function showMessage(message) {
+      var time = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
       this.append(message);
       setTimeout(function () {
         return message["class"]({
@@ -452,8 +455,10 @@ var FloatMessage = /*#__PURE__*/function (_vhannels$ViewGroup) {
 
   return FloatMessage;
 }(vhannels.ViewGroup);
+/** @type FloatMessage */
 
-vhannels.setName(["floatContlos"]).FloatMessage = FloatMessage;
+
+vhannels.floatContlos.FloatMessage = FloatMessage;
 
 /***/ })
 /******/ ]);

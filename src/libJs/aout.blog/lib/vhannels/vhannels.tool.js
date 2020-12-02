@@ -81,12 +81,12 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 8:
+/***/ 12:
 /***/ (function(module, exports) {
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
@@ -95,6 +95,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+vhannels.setName(['tool']);
 /** 获取地址栏参数
  *
  * @param {string} key 获取的参数名称
@@ -102,7 +103,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
  *
  * @return {string} 获取的值
  */
-vhannels.setName(['tool']).getQueryString = function (key) {
+
+vhannels.tool.getQueryString = function (key) {
   var defaval = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
   var str = location.href;
   var num = str.indexOf("?"); // 截取参数数据
@@ -138,7 +140,7 @@ vhannels.setName(['tool']).getQueryString = function (key) {
  * @param {number} maxpage 最大页码
  * @param {number} pagnum 分页数量
  * @param {function(number,boolean,boolean,number,number)} edge 边缘导航生成，传入：当前页码，是否是后边缘，是否远离边缘，最大页码，分页数量
- * @param {function(number,boolean,number,number)} fun 分页生成，传入：当前分页位置，时候是当前页码，最大分页，分页数量
+ * @param {function(number,boolean,number,number)} fun 分页生成，传入：当前分页位置，是否是当前页码，最大分页，分页数量
  */
 
 

@@ -81,376 +81,12 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/******/ ({
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-window.vhannels || (window.vhannels = {});
-/** 检查命名空间
- *
- * @param {[string]} names 命名空间
- */
-
-vhannels.setName = function (names) {
-  var last = window.vhannels;
-
-  var _iterator = _createForOfIteratorHelper(names),
-      _step;
-
-  try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var name = _step.value;
-      if (name === undefined) continue; // 命名空间未就绪
-
-      if (last[name] === undefined) last[name] = {}; // 记录当前命名空间
-
-      last = last[name];
-    }
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
-  }
-
-  return last;
-};
-
-__webpack_require__(5);
-
-__webpack_require__(6);
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _classPrivateFieldGet(receiver, privateMap) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to get private field on non-instance"); } if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
-
-function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to set private field on non-instance"); } if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } return value; }
-
-var _dom = new WeakMap();
-
-/** vhannels 视图对象
- *
- * 存放一个原始节点，并包含对应的操作封装
- *
- * @author fybug
- * @version 0.0.1
- * @class vhannels.View
- */
-var View = /*#__PURE__*/function () {
-  /** 当前节点
-   *
-   *  @type HTMLElement
-   */
-
-  /** @param {HTMLElement|vhannels.View} dom 当前节点 */
-  function View(dom) {
-    _classCallCheck(this, View);
-
-    _dom.set(this, {
-      writable: true,
-      value: void 0
-    });
-
-    _classPrivateFieldSet(this, _dom, View.__toDom(dom));
-  }
-  /*--------------------------------------------------------------------------------------------*/
-
-  /** 获取当前节点
-   *
-   * @return {HTMLElement}
-   */
-
-
-  _createClass(View, [{
-    key: "getDom",
-    value: function getDom() {
-      return _classPrivateFieldGet(this, _dom);
-    }
-    /** 查找子视图
-     *
-     * @param {string} select 查找规则
-     * @return vhannels.ViewGroup[]
-     */
-
-  }, {
-    key: "querySelectorAll",
-    value: function querySelectorAll(select) {
-      var d = this.getDom(); // 查询的数据
-
-      var nods = d.querySelectorAll(select);
-      /* 转化 */
-
-      var re = [];
-      nods.forEach(function (v) {
-        return re.push(new vhannels.ViewGroup(v));
-      });
-      return re;
-    }
-    /** 查找子视图
-     *
-     * @param {string} select 查找规则
-     * @return vhannels.ViewGroup
-     */
-
-  }, {
-    key: "querySelector",
-    value: function querySelector(select) {
-      var d = this.getDom(); // 查询的数据
-
-      var node = d.querySelector(select);
-      return new vhannels.ViewGroup(node);
-    }
-    /*--------------------------------------------------------------------------------------------*/
-
-    /** 属性修改
-     *
-     * @param {Object} data { 属性名：属性值 }，属性值为 undefined 则是消除属性
-     * @return this
-     */
-
-  }, {
-    key: "attrs",
-    value: function attrs(data) {
-      var d = this.getDom();
-      var v;
-
-      for (var key in data) {
-        if (key === undefined) continue;
-        v = data[key]; // 检查是否删除
-
-        v !== undefined ? d.setAttribute(key, v) : d.removeAttribute(key);
-      }
-
-      return this;
-    }
-    /** 类操作
-     *
-     * 提供一体化类操作的接口
-     *
-     * - 追加类<br/>
-     * class("a","s");
-     *
-     * - 移除类<br/>
-     * class({"remove":["a","s"]});
-     *
-     * - 检查是否有对应的类<br/>
-     * class({"check":["a","s"]});
-     *
-     * - 切换类操作<br/>
-     * class({"toggle":["a","s"]});
-     *
-     * 在检查或者切换类的操作后会返回对应的结果，其他操作则是空对象
-     *
-     * @param {{
-     *     check:undefined|[string],
-     *     remove:undefined|[string],
-     *     toggle:undefined|{
-     *         classname:undefined|boolean
-     *     }|[string]
-     * }|[string]} clas
-     * @return {{
-     *     classname:boolean
-     * }}
-     */
-
-  }, {
-    key: "class",
-    value: function _class(clas) {
-      var d = this.getDom();
-      var a = d.classList;
-      var re = {}; // 追加
-
-      if (Array.isArray(clas)) a.add.apply(a, _toConsumableArray(clas));else {
-        // 检查
-        if (clas.check) {
-          var _iterator = _createForOfIteratorHelper(clas.check),
-              _step;
-
-          try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var v = _step.value;
-              re[v] = a.contains(v);
-            }
-          } catch (err) {
-            _iterator.e(err);
-          } finally {
-            _iterator.f();
-          }
-        } // 移除
-
-
-        clas.remove && a.remove.apply(a, _toConsumableArray(clas)); // 切换
-
-        if (clas.toggle) if (Array.isArray(clas.toggle)) {
-          var _iterator2 = _createForOfIteratorHelper(clas.toggle),
-              _step2;
-
-          try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-              var cla = _step2.value;
-              re[cla] = a.toggle(cla);
-            }
-          } catch (err) {
-            _iterator2.e(err);
-          } finally {
-            _iterator2.f();
-          }
-        } else {
-          for (var _cla in clas.toggle) {
-            re[_cla] = a.toggle(_cla, clas.toggle[_cla]);
-          }
-        }
-      }
-      return re;
-    }
-    /** css 样式操作
-     *
-     * 操作一体化样式操作
-     *
-     * 传入的对象示意需要进行的操作，
-     * 含有 "remove" 字段将会对声明的样式进行移除，
-     * 含有 "get" 字段将会获取声明的样式的值以及是否 !important，
-     * 在对象中直接声明要修改的样式，可以和上面的两个字段混合使用
-     *
-     * - 移除样式<br/>
-     * style({"remove":["color"]});
-     *
-     * - 获取样式内容<br/>
-     * style({"get":["color"]});
-     *
-     * - 设置样式<br/>
-     * style({"color":"red"});
-     *
-     * @param {{
-     *     cssname:string|[string],
-     *     "remove":[string],
-     *     "get":[string]
-     * }} sty
-     *
-     * @return {{
-     *     cssname:{
-     *         "val":string,
-     *         "important":"important"|""
-     *     }
-     * }}
-     */
-
-  }, {
-    key: "style",
-    value: function style(sty) {
-      var d = this.getDom();
-      var s = d.style;
-      var re = {};
-
-      for (var v in sty) {
-        if (v === "remove") {
-          // 移除
-          var _iterator3 = _createForOfIteratorHelper(v),
-              _step3;
-
-          try {
-            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-              var res = _step3.value;
-              s.removeProperty(res);
-              re[res] && (re[res] = undefined);
-            }
-          } catch (err) {
-            _iterator3.e(err);
-          } finally {
-            _iterator3.f();
-          }
-        } else if (v === "get") {
-          var _iterator4 = _createForOfIteratorHelper(v),
-              _step4;
-
-          try {
-            for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-              var _res = _step4.value;
-              re[_res] = {
-                "val": s.getPropertyValue(_res),
-                "important": s.getPropertyPriority(_res)
-              };
-            }
-          } catch (err) {
-            _iterator4.e(err);
-          } finally {
-            _iterator4.f();
-          }
-        } else {
-          // 设置 important
-          if (Array.isArray(sty[v])) s.setProperty(v, sty[v][0], sty[v][1]);else s.setProperty(v, sty[v]);
-        }
-      }
-
-      return re;
-    }
-    /*--------------------------------------------------------------------------------------------*/
-
-    /** 移除此视图 */
-
-  }, {
-    key: "remove",
-    value: function remove() {
-      var d = this.getDom();
-      d.parentNode.removeChild(d);
-    }
-    /** 确保为原始元素节点
-     *
-     * @param {HTMLElement|View} view 要确保的对象
-     * @return {HTMLElement} 元素节点
-     */
-
-  }], [{
-    key: "__toDom",
-    value: function __toDom(view) {
-      if (view instanceof vhannels.View) return view.getDom();
-      return view;
-    }
-  }]);
-
-  return View;
-}();
-/** @type View */
-
-
-vhannels.View = View;
-
-/***/ }),
-/* 6 */
+/***/ 10:
 /***/ (function(module, exports) {
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -546,6 +182,40 @@ var ViewGroup = /*#__PURE__*/function (_vhannels$View) {
 
       return views;
     }
+    /** 查找子视图
+     *
+     * @param {string} select 查找规则
+     * @return vhannels.ViewGroup[]
+     */
+
+  }, {
+    key: "querySelectorAll",
+    value: function querySelectorAll(select) {
+      var d = this.getDom(); // 查询的数据
+
+      var nods = d.querySelectorAll(select);
+      /* 转化 */
+
+      var re = [];
+      nods.forEach(function (v) {
+        return re.push(new vhannels.ViewGroup(v));
+      });
+      return re;
+    }
+    /** 查找子视图
+     *
+     * @param {string} select 查找规则
+     * @return vhannels.ViewGroup
+     */
+
+  }, {
+    key: "querySelector",
+    value: function querySelector(select) {
+      var d = this.getDom(); // 查询的数据
+
+      var node = d.querySelector(select);
+      return new vhannels.ViewGroup(node);
+    }
     /*--------------------------------------------------------------------------------------------*/
 
     /** 在容器前面插入视图
@@ -594,9 +264,21 @@ var ViewGroup = /*#__PURE__*/function (_vhannels$View) {
 
       return this;
     }
+    /** 追加 html 内容
+     *
+     * @param {string} html 追加的 html 内容
+     * @return this
+     */
+
+  }, {
+    key: "addHtml",
+    value: function addHtml(html) {
+      this.getDom().innerHTML += html;
+      return this;
+    }
     /*--------------------------------------------------------------------------------------------*/
 
-    /** 删除指定的视图
+    /** 删除容器内指定的视图
      *
      * @param {vhannels.View|HTMLElement} view 要删除的视图
      * @return this
@@ -645,6 +327,41 @@ var ViewGroup = /*#__PURE__*/function (_vhannels$View) {
 
       return this;
     }
+    /** 清空内容
+     *
+     * 可通过查询表达式删除指定的所有内容
+     *
+     * @param {string|undefined} query 查询表达式
+     * @return this
+     */
+
+  }, {
+    key: "clean",
+    value: function clean() {
+      var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
+      if (query === undefined) this.getDom().innerHTML = '';else this.querySelectorAll(query).forEach(function (v) {
+        return v.remove();
+      });
+      return this;
+    }
+    /*--------------------------------------------------------------------------------------------*/
+
+  }], [{
+    key: "creaViewGroup",
+    value: function creaViewGroup(dom) {
+      if (typeof dom === 'string') return new ViewGroup(document.createElement(dom));else return new ViewGroup(dom);
+    }
+    /** 确保对象为 ViewGroup 对象
+     *
+     * @return vhannels.ViewGroup
+     */
+
+  }, {
+    key: "__toViewGroup",
+    value: function __toViewGroup(dom) {
+      if (dom instanceof vhannels.ViewGroup) return dom;
+      return this.creaViewGroup(dom);
+    }
   }]);
 
   return ViewGroup;
@@ -654,5 +371,411 @@ var ViewGroup = /*#__PURE__*/function (_vhannels$View) {
 
 vhannels.ViewGroup = ViewGroup;
 
+/***/ }),
+
+/***/ 8:
+/***/ (function(module, exports, __webpack_require__) {
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+window.vhannels || (window.vhannels = {});
+/** 检查命名空间
+ *
+ * @param {[string]} names 命名空间
+ */
+
+vhannels.setName = function (names) {
+  var last = window.vhannels;
+
+  var _iterator = _createForOfIteratorHelper(names),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var name = _step.value;
+      if (name === undefined) continue; // 命名空间未就绪
+
+      if (last[name] === undefined) last[name] = {}; // 记录当前命名空间
+
+      last = last[name];
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  return last;
+};
+
+__webpack_require__(9);
+
+__webpack_require__(10); // 全局 Body 对象
+
+
+window.addEventListener("load", function () {
+  return vhannels.View.Body = new vhannels.ViewGroup(document.body);
+});
+
+/***/ }),
+
+/***/ 9:
+/***/ (function(module, exports) {
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _classPrivateFieldGet(receiver, privateMap) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to get private field on non-instance"); } if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to set private field on non-instance"); } if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } return value; }
+
+var _dom = new WeakMap();
+
+/** vhannels 视图对象
+ *
+ * 存放一个原始节点，并包含对应的操作封装
+ *
+ * @author fybug
+ * @version 0.0.1
+ * @class vhannels.View
+ */
+var View = /*#__PURE__*/function () {
+  /** 当前节点
+   *
+   *  @type HTMLElement
+   */
+
+  /** @param {HTMLElement|vhannels.View} dom 当前节点 */
+  function View(dom) {
+    _classCallCheck(this, View);
+
+    _dom.set(this, {
+      writable: true,
+      value: void 0
+    });
+
+    _classPrivateFieldSet(this, _dom, View.__toDom(dom));
+  }
+  /*--------------------------------------------------------------------------------------------*/
+
+  /** 获取当前节点
+   *
+   * @return {HTMLElement}
+   */
+
+
+  _createClass(View, [{
+    key: "getDom",
+    value: function getDom() {
+      return _classPrivateFieldGet(this, _dom);
+    }
+    /** 刷新 html 内容
+     *
+     * @param {string} html 新的 html 内容
+     * @return this
+     */
+
+  }, {
+    key: "setHtml",
+    value: function setHtml(html) {
+      this.getDom().innerHTML = html;
+      return this;
+    }
+    /** 获取 html 内容 */
+
+  }, {
+    key: "html",
+    value: function html() {
+      return this.getDom().innerHTML;
+    }
+    /** 获取 innerText 的内容 */
+
+  }, {
+    key: "text",
+    value: function text() {
+      return this.getDom().innerText;
+    }
+    /*--------------------------------------------------------------------------------------------*/
+
+    /** 属性修改
+     *
+     * @param {Object} data { 属性名：属性值 }，属性值为 undefined 则是消除属性
+     * @return this
+     */
+
+  }, {
+    key: "attrs",
+    value: function attrs(data) {
+      var d = this.getDom();
+      var v;
+
+      for (var key in data) {
+        if (key === undefined) continue;
+        v = data[key]; // 检查是否删除
+
+        v !== undefined ? d.setAttribute(key, v) : d.removeAttribute(key);
+      }
+
+      return this;
+    }
+    /** 获取属性
+     *
+     * @param {[string]} data 要获取的属性列表
+     * @return {{"string":string}} 获取的属性映射
+     */
+
+  }, {
+    key: "getattrs",
+    value: function getattrs(data) {
+      var d = this.getDom();
+      var ats = {};
+
+      var _iterator = _createForOfIteratorHelper(data),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var v = _step.value;
+          ats[v] = d.getAttribute(v);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      return ats;
+    }
+    /** 获取 value 属性的内容
+     *
+     * @return string 获取的属性值
+     */
+
+  }, {
+    key: "value",
+    value: function value() {
+      return this.getattrs(["value"]).value;
+    }
+    /*------------------------*/
+
+    /** 类操作
+     *
+     * 提供一体化类操作的接口
+     *
+     * - 追加类<br/>
+     * class("a","s");
+     *
+     * - 移除类<br/>
+     * class({"remove":["a","s"]});
+     *
+     * - 检查是否有对应的类<br/>
+     * class({"check":["a","s"]});
+     *
+     * - 切换类操作<br/>
+     * class({"toggle":["a","s"]});
+     *
+     * 在检查或者切换类的操作后会返回对应的结果，其他操作则是空对象
+     *
+     * @param {{
+     *     check:undefined|[string],
+     *     remove:undefined|[string],
+     *     toggle:undefined|{
+     *         classname:undefined|boolean
+     *     }|[string]
+     * }|[string]} clas
+     * @return {{
+     *     classname:boolean
+     * }}
+     */
+
+  }, {
+    key: "class",
+    value: function _class(clas) {
+      var d = this.getDom();
+      var a = d.classList;
+      var re = {}; // 追加
+
+      if (Array.isArray(clas)) a.add.apply(a, _toConsumableArray(clas));else {
+        // 检查
+        if (clas.check) {
+          var _iterator2 = _createForOfIteratorHelper(clas.check),
+              _step2;
+
+          try {
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+              var v = _step2.value;
+              re[v] = a.contains(v);
+            }
+          } catch (err) {
+            _iterator2.e(err);
+          } finally {
+            _iterator2.f();
+          }
+        } // 移除
+
+
+        clas.remove && a.remove.apply(a, _toConsumableArray(clas)); // 切换
+
+        if (clas.toggle) if (Array.isArray(clas.toggle)) {
+          var _iterator3 = _createForOfIteratorHelper(clas.toggle),
+              _step3;
+
+          try {
+            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+              var cla = _step3.value;
+              re[cla] = a.toggle(cla);
+            }
+          } catch (err) {
+            _iterator3.e(err);
+          } finally {
+            _iterator3.f();
+          }
+        } else {
+          for (var _cla in clas.toggle) {
+            re[_cla] = a.toggle(_cla, clas.toggle[_cla]);
+          }
+        }
+      }
+      return re;
+    }
+    /** css 样式操作
+     *
+     * 操作一体化样式操作
+     *
+     * 传入的对象示意需要进行的操作，
+     * 含有 "remove" 字段将会对声明的样式进行移除，
+     * 含有 "get" 字段将会获取声明的样式的值以及是否 !important，
+     * 在对象中直接声明要修改的样式，可以和上面的两个字段混合使用
+     *
+     * - 移除样式<br/>
+     * style({"remove":["color"]});
+     *
+     * - 获取样式内容<br/>
+     * style({"get":["color"]});
+     *
+     * - 设置样式<br/>
+     * style({"color":"red"});
+     *
+     * @param {{
+     *     cssname:string|[string],
+     *     "remove":[string],
+     *     "get":[string]
+     * }} sty
+     *
+     * @return {{
+     *     cssname:{
+     *         "val":string,
+     *         "important":"important"|""
+     *     }
+     * }}
+     */
+
+  }, {
+    key: "style",
+    value: function style(sty) {
+      var d = this.getDom();
+      var s = d.style;
+      var re = {};
+
+      for (var v in sty) {
+        if (v === "remove") {
+          // 移除
+          var _iterator4 = _createForOfIteratorHelper(v),
+              _step4;
+
+          try {
+            for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+              var res = _step4.value;
+              s.removeProperty(res);
+              re[res] && (re[res] = undefined);
+            }
+          } catch (err) {
+            _iterator4.e(err);
+          } finally {
+            _iterator4.f();
+          }
+        } else if (v === "get") {
+          var _iterator5 = _createForOfIteratorHelper(v),
+              _step5;
+
+          try {
+            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+              var _res = _step5.value;
+              re[_res] = {
+                "val": s.getPropertyValue(_res),
+                "important": s.getPropertyPriority(_res)
+              };
+            }
+          } catch (err) {
+            _iterator5.e(err);
+          } finally {
+            _iterator5.f();
+          }
+        } else {
+          // 设置 important
+          if (Array.isArray(sty[v])) s.setProperty(v, sty[v][0], sty[v][1]);else s.setProperty(v, sty[v]);
+        }
+      }
+
+      return re;
+    }
+    /*--------------------------------------------------------------------------------------------*/
+
+    /** 移除此视图 */
+
+  }, {
+    key: "remove",
+    value: function remove() {
+      var d = this.getDom();
+      d.parentNode.removeChild(d);
+    }
+    /** 确保为原始元素节点
+     *
+     * @param {HTMLElement|View} view 要确保的对象
+     * @return {HTMLElement} 元素节点
+     */
+
+  }], [{
+    key: "__toDom",
+    value: function __toDom(view) {
+      if (view instanceof vhannels.View) return view.getDom();
+      return view;
+    }
+  }, {
+    key: "creaView",
+    value: function creaView(dom) {
+      if (typeof dom === 'string') return new View(document.createElement(dom));else return new View(dom);
+    }
+  }]);
+
+  return View;
+}();
+/** @type View */
+
+
+vhannels.View = View;
+
 /***/ })
-/******/ ]);
+
+/******/ });
