@@ -4,12 +4,6 @@
 .idea/
 node_modules/
 
-# CMake
-cmake-build-*/
-
-# File-based project format
-*.iws
-
 # IntelliJ
 /build/
 
