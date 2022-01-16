@@ -10,7 +10,15 @@ module.exports = {
     /** 不包含依赖的打包去除的依赖文件
      * @type Set<string>
      */
-    libRemoveFiles: new Set(["src/libJs/aout.blog/lib/vhannels.tool.js"]),
+    libRemoveFiles: new Set(["src/libJs/aout.blog/lib/vhannels/vhannels_publiclib.js",
+        "src/libJs/aout.blog/lib/vhannels/vhannels.tool.js",
+        "src/libJs/aout.blog/lib/vhannels/vhannels.floatContlos_all.js",
+        "src/libJs/aout.blog/lib/vhannels/vhannels.floatContlos.floatmessage.js",
+        "src/libJs/aout.blog/lib/vhannels/vhannels.floatContlos.floatdialog.js",
+        "src/libJs/aout.blog/lib/vhannels/style/vhannels.floatContlos.floatdialog.css",
+        "src/libJs/aout.blog/lib/vhannels/style/vhannels.floatContlos.floatmessage.css",
+        "src/libJs/aout.blog/lib/vhannels/style/vhannels.floatContlos_all.css",
+        "src/libJs/aout.blog/lib/vhannels/style/vhannels.style.css"]),
 
     /** 源码输入目录
      * @type string
