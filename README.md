@@ -1,13 +1,16 @@
-<!--<p align="center">
-<img src="https://images.gitee.com/uploads/images/2020/1029/101612_c02d1e7c_2071767.png" width="191" height="210" alt="Icon"/>-->
+<p align="center">
+<img src="https://images.gitee.com/uploads/images/2022/0203/204940_06b67b32_2071767.png" width="351" height="210" alt="Icon"/>
 
 # aout.blog
 ![](https://img.shields.io/badge/version-0.0.1-00b58a.svg "当前版本")
+![](https://img.shields.io/badge/PDWebpack-0.0.1-76aecb.svg "开发所使用的 webpack 版本")
 ![](https://img.shields.io/badge/license-Apache%202.0-f27122.svg "使用的开源协议")
 
 **PDWebpack** 的伪动态博客数据生成及使用插件，用于扫描 markdown 文件并生成为 json 数据文件。
 
 采用单独文件记录分页总数，单独文件记录分页中的内容数据的方法，可以在不更改网页代码的情况下在完全静态以及动态网站之间切换。
+
+> [插件使用实例: fybug.gitee.io](https://fybug.gitee.io/projectsby/main.html)
 
 可通过 **WIKI** 学习如何使用
 
